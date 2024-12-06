@@ -6,47 +6,43 @@ iPA Edit is a Python script for modifying iPA files. It allows you to easily cha
 
 1. **Install Python:** Make sure you have Python installed on your system. If not, you can download and install it from the [official Python website](https://www.python.org/downloads/).
 
-2. **Install Dependencies:** Open your terminal or command prompt and run the following command to install the required Python libraries:
+2. **Install Zsign (optional):** If you want to sign iPA files, you need to compile `zsign`. This can be done from the [zsign GitHub page](https://github.com/zhlynn/zsign).
 
-    ```bash
-    pip install Pillow argparse patoolib
-    ```
+## initialize
 
-3. **Install Zsign (optional):** If you want to sign iPA files, you need to compile `zsign`. This can be done from the [zsign GitHub page](https://github.com/zhlynn/zsign).
+```bash
+bash init.sh
+```
 
 ## Usage
 
 Use the script by providing command-line arguments as follows:
 
 ```bash
-python ipaedit.py -i input.ipa -o output.ipa [Options]
+bash ipaedit.sh -i input.ipa -o output.ipa [Options]
 ```
-you can get usage info with `ipaedit.py -h`
+you can get usage info with `bash ipaedit.sh -h`
 
 ```
-usage: iPA Edit beta.py [-h] -i input -o output [-b bundleID] [-n app name] [-v app version]
-                        [-p app icon] [-f] [-d] [-s] [-e] [-k]
+usage: ipaedit.py [-h] -i input -o output [-b bundleID] [-n app name] [-v app version] [-p app icon] [-f] [-d] [-s] [-e] [-k]
 
 iPA Edit is a Python script for modifying iPA files.
 
-options:
+optional arguments:
   -h, --help      show this help message and exit
   -i input        the .ipa/.deb to patch
-  -o output       the name of the patched .ipa/.deb that will be created. recommended to specify
-                  not only the output folder but also the name of the output file, e.g.
-                  /home/ipa/mymodiPA.ipa
+  -o output       the name of the patched .ipa/.deb that will be created. recommended to specify not only the output folder but also the name of the output file, e.g. /home/ipa/mymodiPA.ipa
   -b bundleID     change bundleID
   -n app name     change app name
   -v app version  change app version
   -p app icon     change app icon
   -f              enable document browser
   -d              export .dylib(s) that are injected in that iPA
-  -s              sign iPA(s) with a certificate (If you only want to sign one iPA, enter the
-                  path of the iPA in -i, but if it is a folder with several iPAs, then enter the
-                  folder that contains all the iPAs in -i)
+  -s              sign iPA(s) with a certificate (If you only want to sign one iPA, enter the path of the iPA in -i, but if it is a folder with several iPAs, then enter the folder that contains all the iPAs in -i)
   -e              .deb to .iPA (only works if the .deb has a Payload folder, for example Kodi)
   -k              keep source iPA/deb
 ```
+
 If you have suggestions for what else I could add then create an issue or [contact me](https://binnichtaktiv.github.io/contact)
 
 
